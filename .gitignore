@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual Environment
+venv/
+env/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Logs
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Unknown faces (generated at runtime)
+unknown_faces/
+
+# Event logs (generated at runtime)
+logs/events.csv
+
+# Face encodings (generated locally)
+encodings/encodings.pkl

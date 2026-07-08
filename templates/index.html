@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Surveillance Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+
+            <h1>AI Surveillance & Monitoring System</h1>
+
+            <p>Real-Time Face Recognition Dashboard</p>
+
+        </header>
+
+        <div class="dashboard">
+
+            <div class="camera-section">
+
+                <h2>Live Camera Feed</h2>
+
+                <img src="{{ url_for('video_feed') }}" id="video">
+
+            </div>
+
+            <div class="info-section">
+
+                <div class="card">
+
+                    <h3>System Status</h3>
+
+                    <p class="status active">ACTIVE</p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Known Faces</h3>
+
+                    <p id="known-count">0</p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Unknown Visitors</h3>
+
+                    <p id="unknown-count">0</p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Current Detection</h3>
+
+                    <p id="current-person">Waiting...</p>
+
+                </div>
+
+                <div class="buttons">
+
+                    <button onclick="window.location='/login'">
+                        Login
+                    </button>
+
+                    <button>
+                        Event Logs
+                    </button>
+
+                    <button>
+                        Unknown Faces
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
