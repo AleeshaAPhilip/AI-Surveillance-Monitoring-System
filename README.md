@@ -1,26 +1,93 @@
-# AI Surveillance & Monitoring System
+# 🛡️ AI Surveillance & Monitoring System
 
-An AI-powered surveillance system that performs real-time face recognition and intruder detection using Raspberry Pi, OpenCV, Flask, and Python. The Raspberry Pi captures live video from a USB webcam and streams it over the local network, while a laptop performs face recognition, logs events, and provides a web-based monitoring dashboard.
+An AI-powered surveillance system that performs **real-time face recognition**, **intruder detection**, and **live video monitoring** using **Raspberry Pi**, **OpenCV**, and **Flask**.
 
----
-
-## Features
-
-- Real-time video streaming from Raspberry Pi
-- Face recognition using cached face encodings
-- Automatic intruder detection
-- Unknown face image storage
-- Event logging with timestamps
-- Live web dashboard using Flask
-- Multiple known persons supported
-- Cached face encodings for faster startup
-- Frame skipping for improved performance
+The Raspberry Pi captures live video from a USB webcam and streams it over the local network, while a laptop performs face recognition using cached face encodings, detects unknown visitors, logs events, and displays the results through a web dashboard.
 
 ---
 
-## Technologies Used
+## 📌 Features
+
+- 🎥 Live video streaming from Raspberry Pi
+- 😀 Real-time face recognition
+- 👥 Multiple known persons support
+- 🚨 Unknown intruder detection
+- 📸 Automatic unknown face image capture
+- 📝 Event logging with timestamps
+- 🌐 Live Flask web dashboard
+- ⚡ Cached face encodings for faster startup
+- 🚀 Frame skipping for improved performance
+- 💻 Simple and clean user interface
+
+---
+
+# 🏗️ System Architecture
+
+```
+             USB Webcam
+                  │
+                  ▼
+          Raspberry Pi 4
+                  │
+      OpenCV Video Capture
+                  │
+      Flask Video Streaming
+                  │
+        Local Wi-Fi Network
+                  │
+                  ▼
+             Laptop (Python)
+                  │
+      Face Recognition Engine
+                  │
+     ┌────────────┴────────────┐
+     │                         │
+Known Person             Unknown Person
+     │                         │
+     │                   Save Image
+     │                   Log Event
+     │                         │
+     └────────────┬────────────┘
+                  │
+                  ▼
+          Flask Web Dashboard
+```
+
+---
+
+# 📂 Project Structure
+
+```
+AI-Surveillance-Monitoring-System
+│
+├── app/
+│   ├── app.py
+│   ├── camera.py
+│   ├── encoder.py
+│   ├── face_recognition.py
+│   ├── status.py
+│   └── config.py
+│
+├── known_faces/
+├── unknown_faces/
+├── encodings/
+├── logs/
+├── static/
+├── templates/
+│
+├── generate_encodings.py
+├── run.py
+├── requirements.txt
+├── README.md
+└── LICENSE
+```
+
+---
+
+# 🛠️ Technologies Used
 
 - Python
+- Raspberry Pi 4
 - OpenCV
 - Flask
 - face_recognition
@@ -28,46 +95,28 @@ An AI-powered surveillance system that performs real-time face recognition and i
 - HTML
 - CSS
 - JavaScript
-- Raspberry Pi 4
 
 ---
 
-## Project Structure
+# 🚀 Installation
 
-```text
-AI-Surveillance-Monitoring-System
-│
-├── app/
-├── known_faces/
-├── encodings/
-├── unknown_faces/
-├── logs/
-├── static/
-├── templates/
-├── screenshots/
-├── run.py
-├── generate_encodings.py
-├── requirements.txt
-└── README.md
-```
-
----
-
-## Installation
-
-Clone the repository
+## Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/AI-Surveillance-Monitoring-System.git
+git clone https://github.com/AleeshaAPhilip/AI-Surveillance-Monitoring-System.git
 ```
 
-Create a virtual environment
+---
+
+## Create Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-Activate the environment
+---
+
+## Activate Virtual Environment
 
 ### Windows
 
@@ -81,7 +130,9 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-Install dependencies
+---
+
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -89,15 +140,27 @@ pip install -r requirements.txt
 
 ---
 
-## Generate Face Encodings
+# 👥 Add Known Faces
 
-Add images inside:
+Place images inside
 
-```text
+```
 known_faces/
 ```
 
-Then run
+Example
+
+```
+known_faces/
+    Anne/
+        1.jpg
+        2.jpg
+        3.jpg
+```
+
+---
+
+# ⚡ Generate Face Encodings
 
 ```bash
 python generate_encodings.py
@@ -105,13 +168,13 @@ python generate_encodings.py
 
 This creates
 
-```text
+```
 encodings/encodings.pkl
 ```
 
 ---
 
-## Run the Project
+# ▶️ Run the Project
 
 ```bash
 python run.py
@@ -125,16 +188,53 @@ http://127.0.0.1:5000
 
 ---
 
-## Future Improvements
+# 📋 Event Logging
 
-- Email alerts for intruder detection
-- Cloud event storage
-- Mobile notification support
-- GPU acceleration
-- Face mask detection
+Every detection is stored in
+
+```
+logs/events.csv
+```
+
+Example
+
+| Timestamp | Person | Status |
+|-----------|--------|--------|
+| 2026-07-09 10:20 | Anne | Known |
+| 2026-07-09 10:24 | Unknown | Intruder |
 
 ---
 
-## License
+# 🚨 Unknown Face Storage
 
-This project is released under the MIT License.
+Whenever an unknown person is detected, an image is automatically saved inside
+
+```
+unknown_faces/
+```
+
+---
+
+# 🔮 Future Improvements
+
+- Email alerts
+- Mobile notifications
+- Cloud database integration
+- GPU acceleration
+- Multiple camera support
+
+---
+
+# 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Aleesha A Philip**
+
+Robotics & Automation Engineering Undergraduate
+
+Lovely Professional University
